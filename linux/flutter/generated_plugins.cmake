@@ -3,6 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  desktop_drop
+  flutter_angle
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
