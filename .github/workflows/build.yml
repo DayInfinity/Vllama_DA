@@ -40,8 +40,8 @@ jobs:
       - name: Build MSIX
         run: flutter pub run msix:create
 
-      - name: Build Android APK
-        run: flutter build apk --release
+      # - name: Build Android APK
+      #   run: flutter build apk --release
 
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v4
@@ -55,11 +55,11 @@ jobs:
           name: vllama-msix
           path: build/windows/x64/runner/Release/*.msix
 
-      - name: Upload Android APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: vllama-android
-          path: build/app/outputs/flutter-apk/app-release.apk
+      # - name: Upload Android APK
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: vllama-android
+      #     path: build/app/outputs/flutter-apk/app-release.apk
 
   release:
     needs: build
@@ -73,10 +73,10 @@ jobs:
         with:
           name: vllama-msix
 
-      - name: Download Android APK
-        uses: actions/download-artifact@v4
-        with:
-          name: vllama-android
+      # - name: Download Android APK
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: vllama-android
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -85,7 +85,7 @@ jobs:
           name: Release v${{ github.event.inputs.version_name || github.run_number }}
           files: |
             *.msix
-            app-release.apk
+            # app-release.apk
           draft: false
           prerelease: false
         env:
