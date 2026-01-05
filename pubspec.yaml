@@ -46,7 +46,7 @@ dependencies:
 
   # Save generated GLB model to disk for loading
   path_provider: ^2.1.5
-  path: ^1.9.1
+  path: ^1.9.0
 
   # In-app 3D viewer (Three.js Dart port + texture renderer)
   three_js: ^0.2.6

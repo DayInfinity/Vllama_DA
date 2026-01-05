@@ -19,18 +19,18 @@ class LogPanel extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       'Logs',
                       style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
                     ),
-                    const Spacer(),
+                    Spacer(),
                     TextButton(
                       onPressed: AppLog.clear,
-                      child: const Text('Clear'),
+                      child: Text('Clear'),
                     ),
                   ],
                 ),

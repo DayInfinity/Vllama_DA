@@ -118,9 +118,9 @@ class _GlbViewerState extends State<GlbViewer> {
     // Higher-res sprite prevents “blocky” points when we increase point size.
     const size = 128;
     final data = Uint8Array(size * size * 4);
-    final cx = (size - 1) / 2.0;
-    final cy = (size - 1) / 2.0;
-    final r = size / 2.15;
+    const cx = (size - 1) / 2.0;
+    const cy = (size - 1) / 2.0;
+    const r = size / 2.15;
     const edge = 2.0; // soft edge thickness (in pixels)
 
     for (int y = 0; y < size; y++) {
