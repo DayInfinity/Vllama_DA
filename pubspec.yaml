@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.4.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -36,17 +36,17 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # API calls (Flask backend)
-  http: ^1.1.0
+  http: ^1.6.0
 
   # Pick image from filesystem (desktop-friendly)
-  file_picker: ^6.1.1
+  file_picker: ^10.3.8
 
   # Drag-and-drop image onto the app (Windows/macOS/Linux)
   desktop_drop: ^0.7.0
 
   # Save generated GLB model to disk for loading
   path_provider: ^2.1.5
-  path: ^1.8.3
+  path: ^1.9.1
 
   # In-app 3D viewer (Three.js Dart port + OpenGL context for Flutter)
   flutter_gl: ^0.0.21
@@ -71,7 +71,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.1
+  flutter_lints: ^6.0.0
   msix: ^3.16.1
 
 # For information on the generic Dart part of this file, see the
