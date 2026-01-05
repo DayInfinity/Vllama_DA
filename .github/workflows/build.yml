@@ -1,4 +1,4 @@
-name: Build Vllama
+name: Build and Release Vllama
 
 on:
   push:
@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main, master]
   workflow_dispatch:
+    inputs:
+      version_name:
+        description: "Version Name (e.g. 1.0.1)"
+        required: true
+        default: "1.0.0"
 
 jobs:
   build:
@@ -23,7 +28,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.10.4" # Matching pubspec.yaml SDK constraints
+          flutter-version: "3.10.4"
           channel: "stable"
 
       - name: Get Dependencies
@@ -55,3 +60,33 @@ jobs:
         with:
           name: vllama-android
           path: build/app/outputs/flutter-apk/app-release.apk
+
+  release:
+    needs: build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download MSIX
+        uses: actions/download-artifact@v4
+        with:
+          name: vllama-msix
+
+      - name: Download Android APK
+        uses: actions/download-artifact@v4
+        with:
+          name: vllama-android
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.event.inputs.version_name || github.run_number }}
+          name: Release v${{ github.event.inputs.version_name || github.run_number }}
+          files: |
+            *.msix
+            app-release.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
