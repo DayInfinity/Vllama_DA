@@ -166,54 +166,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.8"
-  flutter_gl:
-    dependency: "direct main"
-    description:
-      name: flutter_gl
-      sha256: de74c88f77228f47dd280e2092b50eb49fe1fc008de74047d195a27f2db0b491
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.21"
-  flutter_gl_macos:
-    dependency: transitive
-    description:
-      name: flutter_gl_macos
-      sha256: "62aa244d4aa9127115df651baec070893718dd27571c8dbca5374dbcb9fd4849"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.5"
-  flutter_gl_platform_interface:
-    dependency: transitive
-    description:
-      name: flutter_gl_platform_interface
-      sha256: "03062491fac26d0fda80703e4a01894ecc4fec4f7e5cec131ef021fbf46b2fda"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.4"
-  flutter_gl_web:
-    dependency: transitive
-    description:
-      name: flutter_gl_web
-      sha256: "005dc72618ee14659dff7dfe72d6b1fce0efdda745cfebfe4618ce7ac2044af9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.5"
-  flutter_gl_windows:
-    dependency: transitive
-    description:
-      name: flutter_gl_windows
-      sha256: cd9259fb8178863de9e667129f73447fa174447a3c4abd16defa07af648850e4
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.4"
   flutter_lints:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: "3105dc8492f6183fb076ccf1f351ac3d60564bff92e20bfc4af9cc1651f4e7e1"
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "4.0.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -292,10 +252,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: a5e2b223cb7c9c8efdc663ef484fdd95bb243bff242ef5b13e26883547fce9a0
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "4.0.0"
   logger:
     dependency: transitive
     description:

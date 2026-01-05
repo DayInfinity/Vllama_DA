@@ -5,7 +5,6 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   desktop_drop
   flutter_angle
-  flutter_gl_windows
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
