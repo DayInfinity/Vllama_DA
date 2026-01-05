@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'app_log.dart';
 
 class VllamaApi {
-  static const String baseUrl = 'http://localhost:5000';
+  static const String baseUrl = 'https://manvithgopu1394-vllama-backend.hf.space';
 
   static Future<Map<String, dynamic>> generate3d({
     required File imageFile,

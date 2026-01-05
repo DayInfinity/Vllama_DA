@@ -1,0 +1,57 @@
+name: Build Vllama
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "zulu"
+          java-version: "17"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.10.4" # Matching pubspec.yaml SDK constraints
+          channel: "stable"
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build Windows
+        run: flutter build windows
+
+      - name: Build MSIX
+        run: flutter pub run msix:create
+
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vllama-windows
+          path: build/windows/x64/runner/Release/
+
+      - name: Upload MSIX Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vllama-msix
+          path: build/windows/x64/runner/Release/*.msix
+
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: vllama-android
+          path: build/app/outputs/flutter-apk/app-release.apk
