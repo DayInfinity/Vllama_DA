@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.10.4
+  sdk: ^3.0.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -36,10 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # API calls (Flask backend)
-  http: ^1.6.0
+  http: ^1.1.0
 
   # Pick image from filesystem (desktop-friendly)
-  file_picker: ^10.3.8
+  file_picker: ^6.1.1
 
   # Drag-and-drop image onto the app (Windows/macOS/Linux)
   desktop_drop: ^0.7.0

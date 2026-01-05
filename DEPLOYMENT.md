@@ -79,11 +79,32 @@ The output in `build/web/` can be hosted on GitHub Pages, Vercel, or Netlify.
 
 ---
 
-## 🤖 Automated Builds (CI/CD)
+## 🤖 Automated Builds & Releases (CI/CD)
 
 We have included a GitHub Actions workflow in `.github/workflows/build.yml`. 
-When you push code to GitHub:
-1. It automatically builds the Windows and Android versions.
-2. It uploads them as **Artifacts** in the GitHub "Actions" tab.
 
-To use this, simply push your repository to GitHub!
+### Automatic Releases
+When you push code to the `main` branch:
+1. It automatically builds the Windows executable, MSIX, and Android APK.
+2. It creates a new **GitHub Release** automatically.
+3. It attaches the `.msix` and `.apk` files directly to the release.
+
+### Manual Releases with Versioning
+To specify a custom version name (e.g., `1.0.1`):
+1. Go to your GitHub repository -> **Actions** -> **Build and Release Vllama**.
+2. Click **Run workflow**.
+3. Enter the **Version Name** and click **Run**.
+
+### Permissions & Tokens
+You **do not** need to manually provide a GitHub token. GitHub Actions automatically provides a `GITHUB_TOKEN` for every run. 
+
+I have already added the necessary permissions to the workflow file:
+```yaml
+permissions:
+  contents: write
+```
+
+If the release fails with a "Permission Denied" error:
+1. Go to your GitHub Repository **Settings** -> **Actions** -> **General**.
+2. Scroll down to **Workflow permissions**.
+3. Ensure **Read and write permissions** is selected.
