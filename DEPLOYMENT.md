@@ -117,4 +117,14 @@ I have fully optimized the `pubspec.yaml` for your **Dart 3.4.0** (Flutter 3.22.
 - **Maximized Versions**: `http` (^1.6.0), `file_picker` (^10.3.8), and `path` (^1.9.1) are all locked to the highest stable versions compatible with your SDK.
 - **Stable Lints**: Locked `flutter_lints` to `^4.0.0` to avoid conflicts with experimental SDK features in newer lints.
 
-This configuration is the "Golden State" for your project—it will build flawlessly locally and on GitHub!
+### 💡 Fix for "Null" / Interactive Prompts
+If you see an error like `type 'Null' is not a subtype of type 'FutureOr<String>'`, it usually means a tool is trying to ask you a question (like "Install certificate?").
+
+**How to fix:**
+1. **In Config**: I have added `install_certificate: false` to `pubspec.yaml`. This is the preferred way.
+2. **In Command Line**: You can usually add a "no-interactive" flag. For MSIX, it's:
+   ```powershell
+   flutter pub run msix:create --no-install-certificate
+   ```
+
+**Pro Tip**: When running tools in automated systems (like GitHub Actions or AI assistants), always look for "silent" or "no-interactive" flags to prevent them from crashing when they try to ask for user input.
