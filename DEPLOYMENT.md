@@ -108,3 +108,9 @@ If the release fails with a "Permission Denied" error:
 1. Go to your GitHub Repository **Settings** -> **Actions** -> **General**.
 2. Scroll down to **Workflow permissions**.
 3. Ensure **Read and write permissions** is selected.
+
+### 🔒 Locked Versions for Stability
+I have locked the versions of several key libraries (like `path`, `http`, and `flutter_lints`) in `pubspec.yaml`. 
+
+**Why?**
+Your local environment uses Dart 3.0.3. Newer versions of these packages require Dart 3.4.0+, which causes "Version solving failed" errors. By locking these, we ensure the app builds "once and for all" on your current machine while still working perfectly in GitHub Actions.
